@@ -1,0 +1,544 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars News Net - Replicación</title>
+    <!-- Google Fonts para tipografías similares -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado y Navegación Principal -->
+    <header class="site-header">
+        <!-- Top bar (links superiores y redes) -->
+        <div class="top-bar container">
+            <nav class="top-nav">
+                <a href="#">CONTACT</a>
+                <a href="#">ABOUT</a>
+                <a href="#">THE SWNN TEAM</a>
+                <a href="#">THE CANTINA FORUMS</a>
+                <a href="#">MOVIE NEWS NET</a>
+            </nav>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- Banner Principal -->
+        <div class="header-banner">
+            <!-- Aquí irá el banner del Mandaloriano/Grogu -->
+        </div>
+    </header>
+
+    <!-- Menú de Categorías (Navegación Secundaria) -->
+    <nav class="main-nav">
+        <div class="container nav-wrapper">
+            <a href="#" class="home-icon"><i class="fas fa-home"></i></a>
+            <ul class="nav-menu">
+                <li><a href="#">FILMS <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">TV SERIES <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">ANIMATION <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">BOOKS & COMICS <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">GAMES & TOYS <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">PARKS & EVENTS</a></li>
+                <li><a href="#">EDITORIALS</a></li>
+            </ul>
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="main-content container">
+        <!-- Los bloques de contenido irán aquí en las siguientes etapas -->
+         <!-- Sección LATEST NEWS -->
+        <section class="section-block latest-news-section">
+            <!-- Título de Sección -->
+            <div class="section-header">
+                <h2>LATEST NEWS</h2>
+            </div>
+
+            <!-- Contenedor Principal (Grid de 2 columnas) -->
+            <div class="latest-news-grid">
+                
+                <!-- Columna Izquierda: Slider Noticia Principal -->
+                <div class="featured-slider" id="news-slider" role="region" aria-roledescription="carrusel" aria-label="Noticias destacadas">
+                    <div class="slider-main-card">
+                        <img src="https://via.placeholder.com/600x350/222/fff?text=Reign+of+the+Empire" alt="'Reign of the Empire: From the Ashes' Novel Synopsis Revealed" id="slider-img">
+                        <div class="slider-overlay">
+                            <span class="category-tag" id="slider-category">NOVELS</span>
+                            <h3 id="slider-title">'Reign of the Empire: From the Ashes' Novel Synopsis Revealed</h3>
+                            <div class="card-meta">
+                                <span><i class="far fa-calendar-alt"></i> <span id="slider-date">October 19, 2026</span></span>
+                                <span><i class="far fa-user"></i> <span id="slider-author">Josh Atkins</span></span>
+                            </div>
+                        </div>
+                        <!-- Botón de Pausa/Play superpuesto -->
+                        <button type="button" class="slider-pause-btn" id="slider-pause" aria-label="Pausar carrusel"><i class="fas fa-pause"></i></button>
+                        <!-- Flechas de navegación -->
+                        <button type="button" class="slider-arrow arrow-left" id="slider-prev" aria-label="Noticia anterior"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" class="slider-arrow arrow-right" id="slider-next" aria-label="Noticia siguiente"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                    <!-- Miniaturas del Carrusel (cada una lleva los datos de su slide) -->
+                    <div class="slider-thumbnails">
+                        <button type="button" class="thumb-item active"
+                            data-img="https://via.placeholder.com/600x350/222/fff?text=Reign+of+the+Empire"
+                            data-category="NOVELS"
+                            data-title="'Reign of the Empire: From the Ashes' Novel Synopsis Revealed"
+                            data-date="October 19, 2026"
+                            data-author="Josh Atkins"><img src="https://via.placeholder.com/80x50/333/fff" alt=""></button>
+                        <button type="button" class="thumb-item"
+                            data-img="https://via.placeholder.com/600x350/2a2a44/fff?text=Starfighter"
+                            data-category="MOVIES"
+                            data-title="'Star Wars: Starfighter' Budget Surpasses 'The Force Awakens'"
+                            data-date="October 23, 2026"
+                            data-author="Grant Davis"><img src="https://via.placeholder.com/80x50/444/fff" alt=""></button>
+                        <button type="button" class="thumb-item"
+                            data-img="https://via.placeholder.com/600x350/442a2a/fff?text=Sixth+Brother"
+                            data-category="CHARACTERS"
+                            data-title="Sixth Brother – 'Star Wars' Character Spotlight"
+                            data-date="October 23, 2026"
+                            data-author="Josh Atkins"><img src="https://via.placeholder.com/80x50/555/fff" alt=""></button>
+                        <button type="button" class="thumb-item"
+                            data-img="https://via.placeholder.com/600x350/2a442a/fff?text=Kylo+Ren"
+                            data-category="COMICS"
+                            data-title="Review: 'The Fall of Kylo Ren' #3 Takes a Break for a Knights of Ren Flashback"
+                            data-date="October 22, 2026"
+                            data-author="Nate"><img src="https://via.placeholder.com/80x50/666/fff" alt=""></button>
+                        <button type="button" class="thumb-item"
+                            data-img="https://via.placeholder.com/600x350/44422a/fff?text=Comics+Preview"
+                            data-category="COMICS"
+                            data-title="'Star Wars' January 2027 Comics Preview: 'Star Wars/Marvel: Hope Assembles' #1"
+                            data-date="October 23, 2026"
+                            data-author="Nate"><img src="https://via.placeholder.com/80x50/777/fff" alt=""></button>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Grilla de 4 Noticias (2x2) -->
+                <div class="news-cards-grid">
+                    
+                    <!-- Tarjeta 1 -->
+                    <article class="news-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/280x160/333/fff" alt="Comic Preview">
+                            <div class="card-overlay">
+                                <h4>'Star Wars' January 2027 Comics Preview: 'Star Wars/Marvel: Hope Assembles' #1...</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-calendar-alt"></i> Oct 23, 2026</span>
+                                    <span><i class="far fa-user"></i> Nate</span>
+                                    <span><i class="far fa-comment"></i> 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 2 -->
+                    <article class="news-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/280x160/444/fff" alt="Sixth Brother">
+                            <div class="card-overlay">
+                                <h4>Sixth Brother – 'Star Wars' Character Spotlight</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-calendar-alt"></i> Oct 23, 2026</span>
+                                    <span><i class="far fa-user"></i> Josh Atkins</span>
+                                    <span><i class="far fa-comment"></i> 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 3 -->
+                    <article class="news-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/280x160/555/fff" alt="Starfighter">
+                            <div class="card-overlay">
+                                <h4>'Star Wars: Starfighter' Budget Surpasses 'The Force Awakens'</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-calendar-alt"></i> Oct 23, 2026</span>
+                                    <span><i class="far fa-user"></i> Grant Davis</span>
+                                    <span><i class="far fa-comment"></i> 3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta 4 -->
+                    <article class="news-card">
+                        <div class="card-image">
+                            <img src="https://via.placeholder.com/280x160/666/fff" alt="Kylo Ren">
+                            <div class="card-overlay">
+                                <h4>Review: 'The Fall of Kylo Ren' #3 Takes a Break for a Knights of Ren Flashback</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-calendar-alt"></i> Oct 22, 2026</span>
+                                    <span><i class="far fa-user"></i> Josh Atkins</span>
+                                    <span><i class="far fa-comment"></i> 0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <!-- Botón ver todas -->
+            <div class="see-all-container">
+                <a href="#" class="see-all-link">SEE ALL LATEST NEWS</a>
+            </div>
+        </section>
+        <!-- Contenedor de 2 Columnas: Main Content + Sidebar -->
+        <div class="main-layout">
+            
+            <!-- COLUMNA IZQUIERDA: Noticias por Categorías -->
+            <div class="content-left">
+                
+                <!-- Sección: THE MANDALORIAN AND GROGU -->
+                <section class="section-block category-section">
+                    <div class="section-header">
+                        <h2>THE MANDALORIAN AND GROGU</h2>
+                    </div>
+
+                    <!-- Noticia Destacada Grande de la Categoría -->
+                    <article class="featured-category-card">
+                        <div class="featured-img-container">
+                            <img src="https://via.placeholder.com/700x380/111/fff?text=Mandalorian+and+Grogu" alt="The Mandalorian and Grogu">
+                        </div>
+                        <div class="featured-content">
+                            <div class="tags-group">
+                                <span class="tag tag-blue">Films</span>
+                                <span class="tag tag-blue">Star Wars</span>
+                                <span class="tag tag-blue">The Mandalorian and Grogu</span>
+                            </div>
+                            <h3>'The Mandalorian and Grogu': Nielsen Shows Solid Ratings for First Week on Streaming</h3>
+                            <div class="card-meta">
+                                <span><i class="far fa-calendar-alt"></i> September 19, 2026</span>
+                                <span><i class="far fa-user"></i> Miguel Fernandez</span>
+                            </div>
+                            <p class="excerpt">
+                                The Mandalorian and Grogu was a box office disaster earlier this year, becoming the lowest-grossing Star Wars movie ever though it...
+                            </p>
+                        </div>
+                    </article>
+                    
+
+                    <!-- Lista de Noticias Secundarias (Fila de Minis) -->
+                    <div class="category-list">
+                        
+                        <!-- Mini Noticia 1 -->
+                        <article class="mini-news-card">
+                            <img src="https://via.placeholder.com/120x80/222/fff" alt="Mini 1">
+                            <div class="mini-news-info">
+                                <h4>'The Mandalorian and Grogu' Currently Streaming on Disney Plus, IMAX Enhanced Version Available</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-calendar-alt"></i> Sep 11, 2026</span>
+                                    <span><i class="far fa-user"></i> Miguel Fernandez</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Mini Noticia 2 -->
+                        <article class="mini-news-card">
+                            <img src="https://via.placeholder.com/120x80/333/fff" alt="Mini 2">
+                            <div class="mini-news-info">
+                                <h4>Tippett Studio Closes After 35 Years Of Animation Innovation; Original 'Star Wars' Models To Be Auctioned Off</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-calendar-alt"></i> Aug 22, 2026</span>
+                                    <span><i class="far fa-user"></i> Abel Morgan</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Mini Noticia 3 -->
+                        <article class="mini-news-card">
+                            <img src="https://via.placeholder.com/120x80/444/fff" alt="Mini 3">
+                            <div class="mini-news-info">
+                                <h4>'The Mandalorian and Grogu' Confirmed to Hit Disney Plus on September 2nd</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-calendar-alt"></i> Aug 18, 2026</span>
+                                    <span><i class="far fa-user"></i> Josh Atkins</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Mini Noticia 4 -->
+                        <article class="mini-news-card">
+                            <img src="https://via.placeholder.com/120x80/555/fff" alt="Mini 4">
+                            <div class="mini-news-info">
+                                <h4>Disney CEO Josh D'Amaro Minimizes 'The Mandalorian and Grogu' Box Office Failure, Says Company Is Exploring Free Streaming Services</h4>
+                                <div class="card-meta">
+                                    <span><i class="far fa-calendar-alt"></i> Aug 6, 2026</span>
+                                    <span><i class="far fa-user"></i> Miguel Fernandez</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <div class="see-all-container">
+                        <a href="#" class="see-all-link">See all</a>
+                    </div>
+                </section>
+                <!-- Fila Doble: BOOKS & COMICS + GAMES & TOYS -->
+                <div class="two-columns-row">
+                    
+                    <!-- Columna 1: BOOKS & COMICS -->
+                    <section class="section-block category-section">
+                        <div class="section-header">
+                            <h2>BOOKS & COMICS</h2>
+                        </div>
+
+                        <article class="sub-featured-card">
+                            <img src="https://via.placeholder.com/350x200/222/fff" alt="Books">
+                            <div class="tags-group">
+                                <span class="tag tag-blue">Books & Comics</span>
+                                <span class="tag tag-blue">Comics</span>
+                                <span class="tag tag-blue">Star Wars</span>
+                            </div>
+                            <h3>'Star Wars' January 2027 Comics Preview: 'Star Wars/Marvel: Hope Assembles' #1...</h3>
+                            <div class="card-meta">
+                                <span><i class="far fa-calendar-alt"></i> Oct 23, 2026</span>
+                                <span><i class="far fa-user"></i> Nate Manning</span>
+                            </div>
+                            <p class="excerpt">January 2027 has been circled on the calendar as a reset of sorts for Star Wars comics...</p>
+                        </article>
+
+                        <div class="category-list">
+                            <article class="mini-news-card">
+                                <img src="https://via.placeholder.com/80x60/333/fff" alt="Mini">
+                                <div class="mini-news-info">
+                                    <h4>Review: 'The Fall of Kylo Ren' #3 Takes a Break for a Knights of Ren Flashback</h4>
+                                    <div class="card-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Oct 22, 2026</span>
+                                        <span><i class="far fa-user"></i> Josh Atkins</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="mini-news-card">
+                                <img src="https://via.placeholder.com/80x60/444/fff" alt="Mini">
+                                <div class="mini-news-info">
+                                    <h4>Review – 'Star Wars Icons: Vader' Is a One-Of-A-Kind Celebration</h4>
+                                    <div class="card-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Oct 22, 2026</span>
+                                        <span><i class="far fa-user"></i> Nate Manning</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="see-all-container">
+                            <a href="#" class="see-all-link">See all</a>
+                        </div>
+                    </section>
+
+                    <!-- Columna 2: GAMES & TOYS -->
+                    <section class="section-block category-section">
+                        <div class="section-header">
+                            <h2>GAMES & TOYS</h2>
+                        </div>
+
+                        <article class="sub-featured-card">
+                            <img src="https://via.placeholder.com/350x200/333/fff" alt="Games">
+                            <div class="tags-group">
+                                <span class="tag tag-blue">Games</span>
+                                <span class="tag tag-blue">Games & Toys</span>
+                                <span class="tag tag-blue">Jedi Survivor</span>
+                            </div>
+                            <h3>Respawn and DICE Studios Working on 'Star Wars: Battlefront 3'; BioWare Shuttering</h3>
+                            <div class="card-meta">
+                                <span><i class="far fa-calendar-alt"></i> Oct 22, 2026</span>
+                                <span><i class="far fa-user"></i> Jay Goodnough</span>
+                            </div>
+                            <p class="excerpt">In a mix of good news and bad news, Electronic Arts (EA) has stated that Respawn and DICE studios are...</p>
+                        </article>
+
+                        <div class="category-list">
+                            <article class="mini-news-card">
+                                <img src="https://via.placeholder.com/80x60/555/fff" alt="Mini">
+                                <div class="mini-news-info">
+                                    <h4>Disney Reportedly in Talks with Bungie and DICE to Develop a New 'Star Wars: Battlefront' Game</h4>
+                                    <div class="card-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Oct 20, 2026</span>
+                                        <span><i class="far fa-user"></i> Josh Atkins</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="mini-news-card">
+                                <img src="https://via.placeholder.com/80x60/666/fff" alt="Mini">
+                                <div class="mini-news-info">
+                                    <h4>'Star Wars: Galactic Racer' Developers Hint Post-Launch Content Is in Development</h4>
+                                    <div class="card-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Oct 20, 2026</span>
+                                        <span><i class="far fa-user"></i> Grant Davis</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="see-all-container">
+                            <a href="#" class="see-all-link">See all</a>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- Sección a ancho completo: EDITORIALS -->
+                <section class="section-block category-section">
+                    <div class="section-header">
+                        <h2>EDITORIALS</h2>
+                    </div>
+
+                    <div class="editorials-layout">
+                        <article class="featured-category-card">
+                            <div class="featured-img-container">
+                                <img src="https://via.placeholder.com/400x250/222/fff" alt="Sixth Brother">
+                            </div>
+                            <div class="featured-content">
+                                <div class="tags-group">
+                                    <span class="tag tag-blue">Characters</span>
+                                    <span class="tag tag-blue">Editorial</span>
+                                    <span class="tag tag-blue">Star Wars</span>
+                                </div>
+                                <h3>Sixth Brother – 'Star Wars' Character Spotlight</h3>
+                                <div class="card-meta">
+                                    <span><i class="far fa-calendar-alt"></i> Oct 20, 2026</span>
+                                    <span><i class="far fa-user"></i> Josh Atkins</span>
+                                </div>
+                                <p class="excerpt">The Sixth Brother is the next Inquisitor to step into our Star Wars Character Spotlight...</p>
+                            </div>
+                        </article>
+
+                        <div class="category-list">
+                            <article class="mini-news-card">
+                                <img src="https://via.placeholder.com/100x65/333/fff" alt="Sebulba">
+                                <div class="mini-news-info">
+                                    <h4>Sebulba – 'Star Wars' Character Spotlight</h4>
+                                    <div class="card-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Oct 16, 2026</span>
+                                        <span><i class="far fa-user"></i> Josh Atkins</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="mini-news-card">
+                                <img src="https://via.placeholder.com/100x65/444/fff" alt="Kit Fisto">
+                                <div class="mini-news-info">
+                                    <h4>Kit Fisto – 'Star Wars' Character Spotlight</h4>
+                                    <div class="card-meta">
+                                        <span><i class="far fa-calendar-alt"></i> Oct 9, 2026</span>
+                                        <span><i class="far fa-user"></i> Josh Atkins</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="see-all-container">
+                        <a href="#" class="see-all-link">See all</a>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- COLUMNA DERECHA: Sidebar / Barra Lateral -->
+            <aside class="sidebar-right">
+                
+                <!-- Widget 1: Countdown -->
+                <div class="widget widget-countdown">
+                    <div class="widget-header">
+                        <h3>STAR WARS CELEBRATION 2027</h3>
+                    </div>
+                    <div class="countdown-boxes" id="countdown" data-target="2027-04-03T00:00:00" role="timer" aria-label="Cuenta regresiva para Star Wars Celebration 2027">
+                        <div class="c-box">
+                            <span class="c-number" id="cd-days">--</span>
+                            <span class="c-label">Days</span>
+                        </div>
+                        <div class="c-box">
+                            <span class="c-number" id="cd-hours">--</span>
+                            <span class="c-label">Hours</span>
+                        </div>
+                        <div class="c-box">
+                            <span class="c-number" id="cd-minutes">--</span>
+                            <span class="c-label">Minutes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Widget 2: SWNN Live Video -->
+                <div class="widget">
+                    <div class="widget-header">
+                        <h3>SWNN LIVE: SHOULD RET BE IN STARFIGHTER?</h3>
+                    </div>
+                    <div class="widget-media">
+                        <img src="https://via.placeholder.com/320x180/222/fff?text=Video+Thumbnail" alt="SWNN Live">
+                    </div>
+                </div>
+
+                <!-- Widget 3: Marvel Guide Banner -->
+                <div class="widget">
+                    <div class="widget-header">
+                        <h3>A 'STAR WARS' MARVEL COMICS READING GUIDE</h3>
+                    </div>
+                    <div class="widget-media">
+                        <img src="https://via.placeholder.com/320x150/111/fff?text=Marvel+Comics+Guide" alt="Comics Guide">
+                    </div>
+                </div>
+                <!-- Widget Archives -->
+                <div class="widget">
+                    <div class="widget-header">
+                        <h3>SWNN ARCHIVES</h3>
+                    </div>
+                    <div class="widget-select-container">
+                        <select class="archive-select">
+                            <option value="">Select Month</option>
+                            <option value="2026-10">October 2026</option>
+                            <option value="2026-09">September 2026</option>
+                            <option value="2026-08">August 2026</option>
+                        </select>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+    <!-- Footer Principal -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            
+            <!-- Columna About Us -->
+            <div class="footer-col">
+                <div class="section-header">
+                    <h2>ABOUT US</h2>
+                </div>
+                <div class="footer-banner-thumb">
+                    <img src="https://via.placeholder.com/300x100/333/fff?text=Header+Banner+Thumb" alt="Footer Banner">
+                </div>
+                <p class="footer-text">
+                    starwarsnewsnet.com was established on October 30, 2012. The date when Disney announced the acquisition of Lucasfilm and their desire to make more Star Wars movies and other Star Wars related projects.
+                </p>
+            </div>
+
+            <!-- Columna Useful Information -->
+            <div class="footer-col">
+                <div class="section-header">
+                    <h2>USEFUL INFORMATION</h2>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+    <script src="script.js" defer></script>
+</body>
+</html>
