@@ -844,7 +844,7 @@ select:focus-visible {
 }
 
 /* =========================================================
-   Responsive (breakpoints unificados: 900px y 550px)
+   Responsive (breakpoints unificados: 900px, 680px y 550px)
    ========================================================= */
 @media (max-width: 900px) {
     .latest-news-grid,
@@ -853,6 +853,30 @@ select:focus-visible {
     .editorials-layout,
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .top-bar {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 15px;
+    }
+
+    .top-nav {
+        justify-content: center;
+        text-align: center;
+        gap: 6px 14px;
+        font-size: 0.75rem;
+    }
+
+    .social-links {
+        justify-content: center;
+        gap: 20px;
+        font-size: 1rem;
+        margin-top: 2px;
     }
 }
 
