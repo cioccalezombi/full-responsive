@@ -96,6 +96,50 @@ select:focus-visible {
     color: var(--text-white);
 }
 
+/* --- Selector de idioma (EN / ES) --- */
+.top-bar-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+}
+
+.lang-switch {
+    display: inline-flex;
+    border: 1px solid var(--accent-yellow);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.lang-btn {
+    min-width: 34px;
+    min-height: 26px;
+    padding: 2px 9px;
+    background: transparent;
+    color: var(--accent-yellow);
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-btn + .lang-btn {
+    border-left: 1px solid var(--accent-yellow);
+}
+
+.lang-btn:hover {
+    color: var(--text-white);
+}
+
+.lang-btn[aria-pressed="true"],
+.lang-btn[aria-pressed="true"]:hover {
+    background-color: var(--accent-yellow);
+    color: #000;
+}
+
 /* --- Banner Header --- */
 .header-banner {
     width: 100%;
@@ -877,6 +921,16 @@ select:focus-visible {
         gap: 20px;
         font-size: 1rem;
         margin-top: 2px;
+    }
+
+    .top-bar-right {
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    .lang-btn {
+        min-height: 34px;
+        min-width: 42px;
     }
 }
 
