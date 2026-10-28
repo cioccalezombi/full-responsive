@@ -7,7 +7,8 @@
     var els = {
         d: document.getElementById('cd-days'),
         h: document.getElementById('cd-hours'),
-        m: document.getElementById('cd-minutes')
+        m: document.getElementById('cd-minutes'),
+        s: document.getElementById('cd-seconds')
     };
     var pad = function (n) { return String(n).padStart(2, '0'); };
 
@@ -16,6 +17,7 @@
         els.d.textContent = Math.floor(diff / 86400000);
         els.h.textContent = pad(Math.floor(diff / 3600000) % 24);
         els.m.textContent = pad(Math.floor(diff / 60000) % 60);
+        if (els.s) els.s.textContent = pad(Math.floor(diff / 1000) % 60);
         if (diff === 0) clearInterval(timer);
     }
 
@@ -143,4 +145,149 @@
 
     render(0);
     setPlaying(playing);
+})();
+
+// ===== Navegación: desplegables y buscador =====
+(function () {
+    var nav = document.querySelector('.main-nav');
+    if (!nav) return;
+
+    var triggers = Array.prototype.slice.call(nav.querySelectorAll('.nav-trigger'));
+    var menuItems = Array.prototype.slice.call(nav.querySelectorAll('.nav-menu > li'));
+    var navMenu = nav.querySelector('.nav-menu');
+    var searchBtn = nav.querySelector('.search-btn');
+    var searchIcon = searchBtn.querySelector('i');
+    var searchBar = document.getElementById('search-bar');
+    var searchInput = document.getElementById('search-input');
+    var canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    var openTrigger = null;
+    var closeTimer = null;
+
+    function panelOf(trigger) {
+        return document.getElementById(trigger.getAttribute('aria-controls'));
+    }
+
+    function closeMenu(returnFocus) {
+        if (!openTrigger) return;
+        var t = openTrigger;
+        panelOf(t).hidden = true;
+        t.setAttribute('aria-expanded', 'false');
+        openTrigger = null;
+        if (returnFocus) t.focus();
+    }
+
+    function openMenu(trigger) {
+        if (openTrigger === trigger) return;
+        closeMenu(false);
+        closeSearch(false);
+        var panel = panelOf(trigger);
+        panel.hidden = false;
+        // Alinear con el ítem sin que se salga de la pantalla
+        var left = trigger.getBoundingClientRect().left - nav.getBoundingClientRect().left;
+        var max = nav.clientWidth - panel.offsetWidth - 8;
+        panel.style.left = Math.max(8, Math.min(left, max)) + 'px';
+        trigger.setAttribute('aria-expanded', 'true');
+        openTrigger = trigger;
+    }
+
+    function closeSearch(returnFocus) {
+        if (searchBar.hidden) return;
+        searchBar.hidden = true;
+        searchBtn.setAttribute('aria-expanded', 'false');
+        searchBtn.setAttribute('aria-label', 'Abrir buscador');
+        searchIcon.className = 'fas fa-search';
+        if (returnFocus) searchBtn.focus();
+    }
+
+    function openSearch() {
+        closeMenu(false);
+        searchBar.hidden = false;
+        searchBtn.setAttribute('aria-expanded', 'true');
+        searchBtn.setAttribute('aria-label', 'Cerrar buscador');
+        searchIcon.className = 'fas fa-times';
+        searchInput.focus();
+    }
+
+    function scheduleClose() {
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(function () { closeMenu(false); }, 150);
+    }
+
+    function cancelClose() {
+        clearTimeout(closeTimer);
+    }
+
+    // --- Desplegables ---
+    triggers.forEach(function (t) {
+        t.addEventListener('click', function (e) {
+            var viaKeyboard = e.detail === 0;
+            // Con mouse el hover ya lo abrió: el click no debe cerrarlo
+            if (openTrigger === t && (viaKeyboard || !canHover.matches)) closeMenu(false);
+            else openMenu(t);
+        });
+
+        t.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                openMenu(t);
+                panelOf(t).querySelector('a').focus();
+            }
+        });
+
+        // Navegación con flechas dentro del panel
+        panelOf(t).addEventListener('keydown', function (e) {
+            var links = Array.prototype.slice.call(this.querySelectorAll('a'));
+            var i = links.indexOf(document.activeElement);
+            if (e.key === 'ArrowDown') { e.preventDefault(); links[(i + 1) % links.length].focus(); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); links[(i - 1 + links.length) % links.length].focus(); }
+            else if (e.key === 'Home') { e.preventDefault(); links[0].focus(); }
+            else if (e.key === 'End') { e.preventDefault(); links[links.length - 1].focus(); }
+        });
+
+        panelOf(t).addEventListener('mouseenter', cancelClose);
+        panelOf(t).addEventListener('mouseleave', function () { if (canHover.matches) scheduleClose(); });
+    });
+
+    // Hover (solo con mouse): abre al pasar, cierra al salir o al pasar a un ítem sin submenú
+    menuItems.forEach(function (li) {
+        li.addEventListener('mouseenter', function () {
+            if (!canHover.matches) return;
+            cancelClose();
+            var t = li.querySelector('.nav-trigger');
+            if (t) openMenu(t);
+            else closeMenu(false);
+        });
+        li.addEventListener('mouseleave', function () { if (canHover.matches) scheduleClose(); });
+    });
+
+    // --- Buscador ---
+    searchBtn.addEventListener('click', function () {
+        if (searchBar.hidden) openSearch();
+        else closeSearch(false);
+    });
+
+    // --- Cierres globales ---
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        if (openTrigger) closeMenu(true);
+        else closeSearch(true);
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.nav-trigger, .nav-dropdown, .search-bar, .search-btn')) {
+            closeMenu(false);
+            closeSearch(false);
+        }
+    });
+
+    // Si el foco sale del desplegable abierto (Tab), se cierra
+    document.addEventListener('focusin', function (e) {
+        if (!openTrigger) return;
+        if (e.target !== openTrigger && !panelOf(openTrigger).contains(e.target)) closeMenu(false);
+    });
+
+    // El panel queda fijo mientras la nav hace scroll horizontal o cambia el tamaño: se cierra
+    navMenu.addEventListener('scroll', function () { closeMenu(false); });
+    window.addEventListener('resize', function () { closeMenu(false); });
 })();

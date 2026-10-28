@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,33 +26,90 @@
                 <a href="#">MOVIE NEWS NET</a>
             </nav>
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
 
         <!-- Banner Principal -->
-        <div class="header-banner">
-            <!-- Aquí irá el banner del Mandaloriano/Grogu -->
+        <div class="header-banner" role="img" aria-label="May the Force Be With You - Star Wars">
         </div>
     </header>
 
     <!-- Menú de Categorías (Navegación Secundaria) -->
     <nav class="main-nav">
         <div class="container nav-wrapper">
-            <a href="#" class="home-icon"><i class="fas fa-home"></i></a>
+            <a href="#" class="home-icon" aria-label="Inicio"><i class="fas fa-home"></i></a>
             <ul class="nav-menu">
-                <li><a href="#">FILMS <i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="#">TV SERIES <i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="#">ANIMATION <i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="#">BOOKS & COMICS <i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="#">GAMES & TOYS <i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="#">PARKS & EVENTS</a></li>
+                <li><button type="button" class="nav-trigger" aria-expanded="false" aria-controls="dd-films">FILMS <i class="fas fa-chevron-down"></i></button></li>
+                <li><button type="button" class="nav-trigger" aria-expanded="false" aria-controls="dd-tv">TV SERIES <i class="fas fa-chevron-down"></i></button></li>
+                <li><button type="button" class="nav-trigger" aria-expanded="false" aria-controls="dd-animation">ANIMATION <i class="fas fa-chevron-down"></i></button></li>
+                <li><button type="button" class="nav-trigger" aria-expanded="false" aria-controls="dd-books">BOOKS &amp; COMICS <i class="fas fa-chevron-down"></i></button></li>
+                <li><button type="button" class="nav-trigger" aria-expanded="false" aria-controls="dd-games">GAMES &amp; TOYS <i class="fas fa-chevron-down"></i></button></li>
+                <li><a href="#">PARKS &amp; EVENTS</a></li>
                 <li><a href="#">EDITORIALS</a></li>
             </ul>
-            <button class="search-btn"><i class="fas fa-search"></i></button>
+            <button type="button" class="search-btn" aria-label="Abrir buscador" aria-expanded="false" aria-controls="search-bar"><i class="fas fa-search"></i></button>
+        </div>
+
+        <!-- Desplegables (fuera de .nav-menu para que no los recorte su overflow) -->
+        <div class="nav-dropdown" id="dd-films" hidden>
+            <ul>
+                    <li><a href="#">Star Wars Films</a></li>
+                    <li><a href="#">Upcoming Releases</a></li>
+                    <li><a href="#">Box Office</a></li>
+                    <li><a href="#">Film Reviews</a></li>
+                    <li><a href="#">Home Video &amp; Streaming</a></li>
+            </ul>
+        </div>
+        <div class="nav-dropdown" id="dd-tv" hidden>
+            <ul>
+                    <li><a href="#">Live-Action Series</a></li>
+                    <li><a href="#">Season Reviews</a></li>
+                    <li><a href="#">Casting News</a></li>
+                    <li><a href="#">Streaming Schedule</a></li>
+                    <li><a href="#">Behind the Scenes</a></li>
+            </ul>
+        </div>
+        <div class="nav-dropdown" id="dd-animation" hidden>
+            <ul>
+                    <li><a href="#">The Clone Wars</a></li>
+                    <li><a href="#">Rebels</a></li>
+                    <li><a href="#">The Bad Batch</a></li>
+                    <li><a href="#">Tales of the Jedi</a></li>
+                    <li><a href="#">Visions</a></li>
+            </ul>
+        </div>
+        <div class="nav-dropdown" id="dd-books" hidden>
+            <ul>
+                    <li><a href="#">Novels</a></li>
+                    <li><a href="#">Marvel Comics</a></li>
+                    <li><a href="#">Dark Horse Comics</a></li>
+                    <li><a href="#">Manga</a></li>
+                    <li><a href="#">Release Calendar</a></li>
+            </ul>
+        </div>
+        <div class="nav-dropdown" id="dd-games" hidden>
+            <ul>
+                    <li><a href="#">Video Games</a></li>
+                    <li><a href="#">Tabletop &amp; RPG</a></li>
+                    <li><a href="#">Collectibles</a></li>
+                    <li><a href="#">LEGO</a></li>
+                    <li><a href="#">Toy Reviews</a></li>
+            </ul>
+        </div>
+
+        <!-- Barra de búsqueda -->
+        <div class="search-bar" id="search-bar" hidden>
+            <div class="container">
+                <form class="search-form" role="search" action="" method="get">
+                    <label for="search-input" class="visually-hidden">Buscar</label>
+                    <input type="search" id="search-input" name="s" placeholder="Search SWNN..." autocomplete="off">
+                    <button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
         </div>
     </nav>
 
@@ -72,7 +129,7 @@
                 <!-- Columna Izquierda: Slider Noticia Principal -->
                 <div class="featured-slider" id="news-slider" role="region" aria-roledescription="carrusel" aria-label="Noticias destacadas">
                     <div class="slider-main-card">
-                        <img src="https://via.placeholder.com/600x350/222/fff?text=Reign+of+the+Empire" alt="'Reign of the Empire: From the Ashes' Novel Synopsis Revealed" id="slider-img">
+                        <img src="assets/images/latest-news/Reign of the Empire From the Ashes'.webp" alt="'Reign of the Empire: From the Ashes' Novel Synopsis Revealed" id="slider-img">
                         <div class="slider-overlay">
                             <span class="category-tag" id="slider-category">NOVELS</span>
                             <h3 id="slider-title">'Reign of the Empire: From the Ashes' Novel Synopsis Revealed</h3>
@@ -91,35 +148,35 @@
                     <!-- Miniaturas del Carrusel (cada una lleva los datos de su slide) -->
                     <div class="slider-thumbnails">
                         <button type="button" class="thumb-item active"
-                            data-img="https://via.placeholder.com/600x350/222/fff?text=Reign+of+the+Empire"
+                            data-img="assets/images/latest-news/Reign of the Empire From the Ashes'.webp"
                             data-category="NOVELS"
                             data-title="'Reign of the Empire: From the Ashes' Novel Synopsis Revealed"
                             data-date="October 19, 2026"
-                            data-author="Josh Atkins"><img src="https://via.placeholder.com/80x50/333/fff" alt=""></button>
+                            data-author="Josh Atkins"><img src="assets/images/latest-news/Reign of the Empire From the Ashes'.webp" alt="Reign of the Empire"></button>
                         <button type="button" class="thumb-item"
-                            data-img="https://via.placeholder.com/600x350/2a2a44/fff?text=Starfighter"
+                            data-img="assets/images/latest-news/Star Wars Starfighter.jpg"
                             data-category="MOVIES"
                             data-title="'Star Wars: Starfighter' Budget Surpasses 'The Force Awakens'"
                             data-date="October 23, 2026"
-                            data-author="Grant Davis"><img src="https://via.placeholder.com/80x50/444/fff" alt=""></button>
+                            data-author="Grant Davis"><img src="assets/images/latest-news/Star Wars Starfighter.jpg" alt="Star Wars Starfighter"></button>
                         <button type="button" class="thumb-item"
-                            data-img="https://via.placeholder.com/600x350/442a2a/fff?text=Sixth+Brother"
+                            data-img="assets/images/latest-news/Sixth Brother - 'Star Wars' Character Spotlight.jpg"
                             data-category="CHARACTERS"
                             data-title="Sixth Brother – 'Star Wars' Character Spotlight"
                             data-date="October 23, 2026"
-                            data-author="Josh Atkins"><img src="https://via.placeholder.com/80x50/555/fff" alt=""></button>
+                            data-author="Josh Atkins"><img src="assets/images/latest-news/Sixth Brother - 'Star Wars' Character Spotlight.jpg" alt="Sixth Brother"></button>
                         <button type="button" class="thumb-item"
-                            data-img="https://via.placeholder.com/600x350/2a442a/fff?text=Kylo+Ren"
+                            data-img="assets/images/latest-news/The Fall of Kylo Ren.webp"
                             data-category="COMICS"
                             data-title="Review: 'The Fall of Kylo Ren' #3 Takes a Break for a Knights of Ren Flashback"
                             data-date="October 22, 2026"
-                            data-author="Nate"><img src="https://via.placeholder.com/80x50/666/fff" alt=""></button>
+                            data-author="Nate"><img src="assets/images/latest-news/The Fall of Kylo Ren.webp" alt="The Fall of Kylo Ren"></button>
                         <button type="button" class="thumb-item"
-                            data-img="https://via.placeholder.com/600x350/44422a/fff?text=Comics+Preview"
+                            data-img="assets/images/latest-news/Star Wars' January 2027 Comics Preview.jpg"
                             data-category="COMICS"
                             data-title="'Star Wars' January 2027 Comics Preview: 'Star Wars/Marvel: Hope Assembles' #1"
                             data-date="October 23, 2026"
-                            data-author="Nate"><img src="https://via.placeholder.com/80x50/777/fff" alt=""></button>
+                            data-author="Nate"><img src="assets/images/latest-news/Star Wars' January 2027 Comics Preview.jpg" alt="Star Wars Comics Preview"></button>
                     </div>
                 </div>
 
@@ -129,7 +186,7 @@
                     <!-- Tarjeta 1 -->
                     <article class="news-card">
                         <div class="card-image">
-                            <img src="https://via.placeholder.com/280x160/333/fff" alt="Comic Preview">
+                            <img src="assets/images/latest-news/Star Wars' January 2027 Comics Preview.jpg" alt="Comic Preview">
                             <div class="card-overlay">
                                 <h4>'Star Wars' January 2027 Comics Preview: 'Star Wars/Marvel: Hope Assembles' #1...</h4>
                                 <div class="card-meta">
@@ -144,7 +201,7 @@
                     <!-- Tarjeta 2 -->
                     <article class="news-card">
                         <div class="card-image">
-                            <img src="https://via.placeholder.com/280x160/444/fff" alt="Sixth Brother">
+                            <img src="assets/images/latest-news/Sixth Brother - 'Star Wars' Character Spotlight.jpg" alt="Sixth Brother">
                             <div class="card-overlay">
                                 <h4>Sixth Brother – 'Star Wars' Character Spotlight</h4>
                                 <div class="card-meta">
@@ -159,7 +216,7 @@
                     <!-- Tarjeta 3 -->
                     <article class="news-card">
                         <div class="card-image">
-                            <img src="https://via.placeholder.com/280x160/555/fff" alt="Starfighter">
+                            <img src="assets/images/latest-news/Star Wars Starfighter.jpg" alt="Starfighter">
                             <div class="card-overlay">
                                 <h4>'Star Wars: Starfighter' Budget Surpasses 'The Force Awakens'</h4>
                                 <div class="card-meta">
@@ -174,7 +231,7 @@
                     <!-- Tarjeta 4 -->
                     <article class="news-card">
                         <div class="card-image">
-                            <img src="https://via.placeholder.com/280x160/666/fff" alt="Kylo Ren">
+                            <img src="assets/images/latest-news/The Fall of Kylo Ren.webp" alt="Kylo Ren">
                             <div class="card-overlay">
                                 <h4>Review: 'The Fall of Kylo Ren' #3 Takes a Break for a Knights of Ren Flashback</h4>
                                 <div class="card-meta">
@@ -209,7 +266,7 @@
                     <!-- Noticia Destacada Grande de la Categoría -->
                     <article class="featured-category-card">
                         <div class="featured-img-container">
-                            <img src="https://via.placeholder.com/700x380/111/fff?text=Mandalorian+and+Grogu" alt="The Mandalorian and Grogu">
+                            <img src="assets/images/the-mandalorian-and-grogu/mandaloriann-and-grogu2.webp" alt="The Mandalorian and Grogu">
                         </div>
                         <div class="featured-content">
                             <div class="tags-group">
@@ -234,7 +291,7 @@
                         
                         <!-- Mini Noticia 1 -->
                         <article class="mini-news-card">
-                            <img src="https://via.placeholder.com/120x80/222/fff" alt="Mini 1">
+                            <img src="assets/images/the-mandalorian-and-grogu/mandalorian-and-grogu3.jpg" alt="The Mandalorian and Grogu Disney Plus">
                             <div class="mini-news-info">
                                 <h4>'The Mandalorian and Grogu' Currently Streaming on Disney Plus, IMAX Enhanced Version Available</h4>
                                 <div class="card-meta">
@@ -246,7 +303,7 @@
 
                         <!-- Mini Noticia 2 -->
                         <article class="mini-news-card">
-                            <img src="https://via.placeholder.com/120x80/333/fff" alt="Mini 2">
+                            <img src="assets/images/the-mandalorian-and-grogu/tippett-studio.jpg" alt="Tippett Studio">
                             <div class="mini-news-info">
                                 <h4>Tippett Studio Closes After 35 Years Of Animation Innovation; Original 'Star Wars' Models To Be Auctioned Off</h4>
                                 <div class="card-meta">
@@ -258,7 +315,7 @@
 
                         <!-- Mini Noticia 3 -->
                         <article class="mini-news-card">
-                            <img src="https://via.placeholder.com/120x80/444/fff" alt="Mini 3">
+                            <img src="assets/images/the-mandalorian-and-grogu/mandalorian-and-grogu2.jpg" alt="The Mandalorian and Grogu">
                             <div class="mini-news-info">
                                 <h4>'The Mandalorian and Grogu' Confirmed to Hit Disney Plus on September 2nd</h4>
                                 <div class="card-meta">
@@ -270,7 +327,7 @@
 
                         <!-- Mini Noticia 4 -->
                         <article class="mini-news-card">
-                            <img src="https://via.placeholder.com/120x80/555/fff" alt="Mini 4">
+                            <img src="assets/images/the-mandalorian-and-grogu/disney-ceo.jpg" alt="Disney CEO Josh D'Amaro">
                             <div class="mini-news-info">
                                 <h4>Disney CEO Josh D'Amaro Minimizes 'The Mandalorian and Grogu' Box Office Failure, Says Company Is Exploring Free Streaming Services</h4>
                                 <div class="card-meta">
@@ -296,7 +353,7 @@
                         </div>
 
                         <article class="sub-featured-card">
-                            <img src="https://via.placeholder.com/350x200/222/fff" alt="Books">
+                            <img src="assets/images/books-and-comics/Star Wars' January 2027 Comics Preview.webp" alt="'Star Wars' January 2027 Comics Preview">
                             <div class="tags-group">
                                 <span class="tag tag-blue">Books & Comics</span>
                                 <span class="tag tag-blue">Comics</span>
@@ -312,7 +369,7 @@
 
                         <div class="category-list">
                             <article class="mini-news-card">
-                                <img src="https://via.placeholder.com/80x60/333/fff" alt="Mini">
+                                <img src="assets/images/books-and-comics/Review The Fall of Kylo Ren 3 Takes.webp" alt="Review: 'The Fall of Kylo Ren' #3">
                                 <div class="mini-news-info">
                                     <h4>Review: 'The Fall of Kylo Ren' #3 Takes a Break for a Knights of Ren Flashback</h4>
                                     <div class="card-meta">
@@ -322,7 +379,7 @@
                                 </div>
                             </article>
                             <article class="mini-news-card">
-                                <img src="https://via.placeholder.com/80x60/444/fff" alt="Mini">
+                                <img src="assets/images/books-and-comics/Review Star Wars Icons Vader Is a One-Of-A-Kind Celebration.webp" alt="Review: 'Star Wars Icons: Vader'">
                                 <div class="mini-news-info">
                                     <h4>Review – 'Star Wars Icons: Vader' Is a One-Of-A-Kind Celebration</h4>
                                     <div class="card-meta">
@@ -345,7 +402,7 @@
                         </div>
 
                         <article class="sub-featured-card">
-                            <img src="https://via.placeholder.com/350x200/333/fff" alt="Games">
+                            <img src="assets/images/games-and-toys/Respawn and DICE Studios Working.webp" alt="Respawn and DICE Studios Working on 'Star Wars: Battlefront 3'">
                             <div class="tags-group">
                                 <span class="tag tag-blue">Games</span>
                                 <span class="tag tag-blue">Games & Toys</span>
@@ -361,7 +418,7 @@
 
                         <div class="category-list">
                             <article class="mini-news-card">
-                                <img src="https://via.placeholder.com/80x60/555/fff" alt="Mini">
+                                <img src="assets/images/games-and-toys/Disney Reportedly in Talks with Bungie.webp" alt="Disney, Bungie and DICE - 'Star Wars: Battlefront'">
                                 <div class="mini-news-info">
                                     <h4>Disney Reportedly in Talks with Bungie and DICE to Develop a New 'Star Wars: Battlefront' Game</h4>
                                     <div class="card-meta">
@@ -371,7 +428,7 @@
                                 </div>
                             </article>
                             <article class="mini-news-card">
-                                <img src="https://via.placeholder.com/80x60/666/fff" alt="Mini">
+                                <img src="assets/images/games-and-toys/Star Wars Galactic Racer.jpg" alt="'Star Wars: Galactic Racer'">
                                 <div class="mini-news-info">
                                     <h4>'Star Wars: Galactic Racer' Developers Hint Post-Launch Content Is in Development</h4>
                                     <div class="card-meta">
@@ -398,7 +455,7 @@
                     <div class="editorials-layout">
                         <article class="featured-category-card">
                             <div class="featured-img-container">
-                                <img src="https://via.placeholder.com/400x250/222/fff" alt="Sixth Brother">
+                                <img src="assets/images/latest-news/Sixth Brother - 'Star Wars' Character Spotlight.jpg" alt="Sixth Brother">
                             </div>
                             <div class="featured-content">
                                 <div class="tags-group">
@@ -417,7 +474,7 @@
 
                         <div class="category-list">
                             <article class="mini-news-card">
-                                <img src="https://via.placeholder.com/100x65/333/fff" alt="Sebulba">
+                                <img src="assets/images/editorials/Sebulba.webp" alt="Sebulba">
                                 <div class="mini-news-info">
                                     <h4>Sebulba – 'Star Wars' Character Spotlight</h4>
                                     <div class="card-meta">
@@ -427,7 +484,7 @@
                                 </div>
                             </article>
                             <article class="mini-news-card">
-                                <img src="https://via.placeholder.com/100x65/444/fff" alt="Kit Fisto">
+                                <img src="assets/images/editorials/Kit Fisto.webp" alt="Kit Fisto">
                                 <div class="mini-news-info">
                                     <h4>Kit Fisto – 'Star Wars' Character Spotlight</h4>
                                     <div class="card-meta">
@@ -467,26 +524,30 @@
                             <span class="c-number" id="cd-minutes">--</span>
                             <span class="c-label">Minutes</span>
                         </div>
+                        <div class="c-box">
+                            <span class="c-number" id="cd-seconds">--</span>
+                            <span class="c-label">Seconds</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Widget 2: SWNN Live Video -->
-                <div class="widget">
+                <div class="widget widget-clickable">
                     <div class="widget-header">
                         <h3>SWNN LIVE: SHOULD RET BE IN STARFIGHTER?</h3>
                     </div>
                     <div class="widget-media">
-                        <img src="https://via.placeholder.com/320x180/222/fff?text=Video+Thumbnail" alt="SWNN Live">
+                        <img src="assets/images/sidebar-right/SHOULD RET BE IN STARFIGHTER.jpg" alt="SWNN Live: Should Ret Be in Starfighter?">
                     </div>
                 </div>
 
                 <!-- Widget 3: Marvel Guide Banner -->
-                <div class="widget">
+                <div class="widget widget-clickable">
                     <div class="widget-header">
                         <h3>A 'STAR WARS' MARVEL COMICS READING GUIDE</h3>
                     </div>
                     <div class="widget-media">
-                        <img src="https://via.placeholder.com/320x150/111/fff?text=Marvel+Comics+Guide" alt="Comics Guide">
+                        <img src="assets/images/sidebar-right/MARVEL COMICS READING GUIDE.jpg" alt="A 'Star Wars' Marvel Comics Reading Guide">
                     </div>
                 </div>
                 <!-- Widget Archives -->
@@ -518,7 +579,7 @@
                     <h2>ABOUT US</h2>
                 </div>
                 <div class="footer-banner-thumb">
-                    <img src="https://via.placeholder.com/300x100/333/fff?text=Header+Banner+Thumb" alt="Footer Banner">
+                    <img src="assets/images/Bannerjpg.jpg" alt="Star Wars Banner">
                 </div>
                 <p class="footer-text">
                     starwarsnewsnet.com was established on October 30, 2012. The date when Disney announced the acquisition of Lucasfilm and their desire to make more Star Wars movies and other Star Wars related projects.
