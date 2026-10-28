@@ -1,17 +1,3 @@
-/* ==========================================================
-   i18n.js — Selector de idioma EN / ES para Star Wars News Net
-
-   Cómo funciona:
-   - El HTML queda en inglés (es el contenido original).
-   - Cada texto, alt, placeholder y aria-label se busca en el
-     diccionario PAIRS y se reemplaza según el idioma elegido.
-   - Las fechas se convierten automáticamente (Oct 23, 2026 → 23 oct 2026).
-   - Un MutationObserver traduce también lo que script.js escribe
-     después (carrusel, cuenta regresiva, etc.).
-   - El idioma elegido se guarda en localStorage.
-
-   Para agregar un texto nuevo: sumá un par ["inglés", "español"] a PAIRS.
-   ========================================================== */
 (() => {
     "use strict";
 
@@ -21,18 +7,14 @@
     const ATTRS = ["alt", "placeholder", "aria-label", "aria-roledescription", "title"];
     const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT"]);
 
-    /* ---------- Diccionario [inglés, español] ---------- */
     const PAIRS = [
-        // Título de la pestaña
         ["Star Wars News Net - Replication", "Star Wars News Net - Replicación"],
 
-        // Barra superior
         ["CONTACT", "CONTACTO"],
         ["ABOUT", "ACERCA DE"],
         ["THE SWNN TEAM", "EL EQUIPO DE SWNN"],
         ["THE CANTINA FORUMS", "LOS FOROS DE LA CANTINA"],
 
-        // Navegación principal
         ["FILMS", "PELÍCULAS"],
         ["TV SERIES", "SERIES DE TV"],
         ["ANIMATION", "ANIMACIÓN"],
@@ -41,7 +23,6 @@
         ["PARKS & EVENTS", "PARQUES Y EVENTOS"],
         ["EDITORIALS", "EDITORIALES"],
 
-        // Desplegables
         ["Star Wars Films", "Películas de Star Wars"],
         ["Upcoming Releases", "Próximos estrenos"],
         ["Box Office", "Taquilla"],
@@ -59,7 +40,6 @@
         ["Collectibles", "Coleccionables"],
         ["Toy Reviews", "Reseñas de juguetes"],
 
-        // Buscador y controles (aria-labels originalmente en español)
         ["Search SWNN...", "Buscar en SWNN..."],
         ["Search", "Buscar"],
         ["Open search", "Abrir buscador"],
@@ -74,12 +54,10 @@
         ["May the Force Be With You - Star Wars", "Que la Fuerza te acompañe - Star Wars"],
         ["Countdown to Star Wars Celebration 2027", "Cuenta regresiva para Star Wars Celebration 2027"],
 
-        // Títulos de sección
         ["LATEST NEWS", "ÚLTIMAS NOTICIAS"],
         ["SEE ALL LATEST NEWS", "VER TODAS LAS ÚLTIMAS NOTICIAS"],
         ["See all", "Ver todo"],
 
-        // Categorías y etiquetas
         ["NOVELS", "NOVELAS"],
         ["MOVIES", "PELÍCULAS"],
         ["CHARACTERS", "PERSONAJES"],
@@ -91,7 +69,6 @@
         ["Books & Comics", "Libros y cómics"],
         ["Games & Toys", "Juegos y juguetes"],
 
-        // Slider y tarjetas de últimas noticias
         ["'Reign of the Empire: From the Ashes' Novel Synopsis Revealed",
          "Revelan la sinopsis de la novela 'Reign of the Empire: From the Ashes'"],
         ["'Star Wars: Starfighter' Budget Surpasses 'The Force Awakens'",
@@ -107,7 +84,6 @@
         ["Comic Preview", "Adelanto de cómic"],
         ["Star Wars Comics Preview", "Adelanto de cómics de Star Wars"],
 
-        // The Mandalorian and Grogu
         ["'The Mandalorian and Grogu': Nielsen Shows Solid Ratings for First Week on Streaming",
          "'The Mandalorian and Grogu': Nielsen muestra una sólida audiencia en su primera semana en streaming"],
         ["The Mandalorian and Grogu was a box office disaster earlier this year, becoming the lowest-grossing Star Wars movie ever though it...",
@@ -122,7 +98,6 @@
          "El CEO de Disney, Josh D'Amaro, le resta importancia al fracaso en taquilla de 'The Mandalorian and Grogu' y dice que la compañía explora servicios de streaming gratuitos"],
         ["Disney CEO Josh D'Amaro", "El CEO de Disney, Josh D'Amaro"],
 
-        // Books & Comics
         ["'Star Wars' January 2027 Comics Preview", "Adelanto de cómics de 'Star Wars' de enero de 2027"],
         ["January 2027 has been circled on the calendar as a reset of sorts for Star Wars comics...",
          "Enero de 2027 quedó marcado en el calendario como una especie de reinicio para los cómics de Star Wars..."],
@@ -131,7 +106,6 @@
          "Reseña - 'Star Wars Icons: Vader' es una celebración única en su tipo"],
         ["Review: 'Star Wars Icons: Vader'", "Reseña: 'Star Wars Icons: Vader'"],
 
-        // Games & Toys
         ["Respawn and DICE Studios Working on 'Star Wars: Battlefront 3'; BioWare Shuttering",
          "Respawn y DICE trabajan en 'Star Wars: Battlefront 3'; BioWare cierra"],
         ["Respawn and DICE Studios Working on 'Star Wars: Battlefront 3'",
@@ -144,13 +118,11 @@
         ["'Star Wars: Galactic Racer' Developers Hint Post-Launch Content Is in Development",
          "Los desarrolladores de 'Star Wars: Galactic Racer' dan a entender que hay contenido posterior al lanzamiento en desarrollo"],
 
-        // Editorials
         ["The Sixth Brother is the next Inquisitor to step into our Star Wars Character Spotlight...",
          "El Sexto Hermano es el próximo Inquisidor en pasar por nuestra sección de personajes destacados de Star Wars..."],
         ["Sebulba - 'Star Wars' Character Spotlight", "Sebulba - Personaje destacado de 'Star Wars'"],
         ["Kit Fisto - 'Star Wars' Character Spotlight", "Kit Fisto - Personaje destacado de 'Star Wars'"],
 
-        // Barra lateral
         ["Days", "Días"],
         ["Hours", "Horas"],
         ["Minutes", "Minutos"],
@@ -162,7 +134,6 @@
         ["SWNN ARCHIVES", "ARCHIVO DE SWNN"],
         ["Select Month", "Seleccionar mes"],
 
-        // Pie de página
         ["ABOUT US", "SOBRE NOSOTROS"],
         ["USEFUL INFORMATION", "INFORMACIÓN ÚTIL"],
         ["Contact us", "Contacto"],
@@ -173,16 +144,12 @@
          "starwarsnewsnet.com se fundó el 30 de octubre de 2012, la fecha en que Disney anunció la adquisición de Lucasfilm y su deseo de hacer más películas de Star Wars y otros proyectos relacionados."]
     ];
 
-    /* ---------- Utilidades ---------- */
-    // Normaliza comillas, guiones y espacios para que la búsqueda sea tolerante
     const norm = (s) => s
         .replace(/[\u2018\u2019]/g, "'")
         .replace(/[\u2013\u2014]/g, "-")
         .replace(/\s+/g, " ")
         .trim();
 
-    // Primero se registran todas las claves en inglés; las de español
-    // (usadas por textos originalmente en español) solo si están libres.
     const lookup = new Map();
     for (const [en, es] of PAIRS) lookup.set(norm(en), { en, es });
     for (const [en, es] of PAIRS) {
@@ -190,7 +157,6 @@
         if (!lookup.has(key)) lookup.set(key, { en, es });
     }
 
-    /* ---------- Fechas ---------- */
     const MONTHS = [
         ["January", "Jan", "enero", "ene"],
         ["February", "Feb", "febrero", "feb"],
@@ -215,13 +181,11 @@
     const MONTH_YEAR_RE = new RegExp("^(" + MONTH_ALT + ")\\s+(\\d{4})$");
 
     function translateDates(text) {
-        // "October 2026" (opciones del select de archivo)
         const my = text.match(MONTH_YEAR_RE);
         if (my) {
             const idx = MONTH_INDEX.get(my[1].toLowerCase());
             return MONTHS[idx][2] + " " + my[2];
         }
-        // "Oct 23, 2026" / "October 19, 2026"
         return text.replace(DATE_RE, (_, month, day, year) => {
             const idx = MONTH_INDEX.get(month.toLowerCase());
             const isLong = month.length > 3;
@@ -231,7 +195,6 @@
         });
     }
 
-    /* ---------- Traducción de un string ---------- */
     function convert(src, lang) {
         const m = src.match(/^(\s*)([\s\S]*?)(\s*)$/);
         const lead = m[1], core = m[2], trail = m[3];
@@ -240,7 +203,6 @@
         const pair = lookup.get(norm(core));
         let out = core;
         if (pair) {
-            // Si el texto ya está en el idioma pedido, se deja tal cual
             if (norm(pair[lang]) !== norm(core)) out = pair[lang];
         } else if (lang === "es") {
             out = translateDates(core);
@@ -248,16 +210,14 @@
         return lead + out + trail;
     }
 
-    /* ---------- Estado y recorrido del DOM ---------- */
     let currentLang = DEFAULT_LANG;
-    const textState = new WeakMap(); // Text -> { src, out }
-    const attrState = new WeakMap(); // Element -> Map(attr -> { src, out })
+    const textState = new WeakMap();
+    const attrState = new WeakMap();
 
     function processText(node) {
         const cur = node.nodeValue;
         if (!cur || !cur.trim()) return;
         let st = textState.get(node);
-        // Si el valor cambió desde afuera (p. ej. script.js), es el nuevo original
         if (!st || cur !== st.out) st = { src: cur, out: cur };
         st.out = convert(st.src, currentLang);
         textState.set(node, st);
@@ -291,7 +251,6 @@
         }
     });
 
-    /* ---------- Cambio de idioma ---------- */
     function updateButtons() {
         document.querySelectorAll(".lang-btn").forEach((btn) => {
             btn.setAttribute("aria-pressed", String(btn.dataset.lang === currentLang));
@@ -305,13 +264,13 @@
         walk(document.documentElement);
         updateButtons();
         if (persist) {
-            try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* sin storage: no pasa nada */ }
+            try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
         }
     }
 
     function init() {
         let saved = null;
-        try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) { /* ignorar */ }
+        try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
 
         document.querySelectorAll(".lang-btn").forEach((btn) => {
             btn.addEventListener("click", () => setLang(btn.dataset.lang));

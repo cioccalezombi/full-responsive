@@ -1,22 +1,17 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Wars News Net - Replicación</title>
-    <!-- Google Fonts para tipografías similares -->
+    <title>Star Wars News Net - ReplicaciÃ³n</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Estilos CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Encabezado y Navegación Principal -->
     <header class="site-header">
-        <!-- Top bar (links superiores y redes) -->
         <div class="top-bar container">
             <nav class="top-nav">
                 <a href="#">CONTACT</a>
@@ -26,10 +21,9 @@
                 <a href="#">MOVIE NEWS NET</a>
             </nav>
             <div class="top-bar-right">
-                <!-- Selector de idioma -->
                 <div class="lang-switch" role="group" aria-label="Idioma / Language">
                     <button type="button" class="lang-btn" data-lang="en" aria-pressed="true" title="English">EN</button>
-                    <button type="button" class="lang-btn" data-lang="es" aria-pressed="false" title="Español">ES</button>
+                    <button type="button" class="lang-btn" data-lang="es" aria-pressed="false" title="EspaÃ±ol">ES</button>
                 </div>
             <div class="social-links">
                 <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -40,12 +34,10 @@
             </div>
         </div>
 
-        <!-- Banner Principal -->
         <div class="header-banner" role="img" aria-label="May the Force Be With You - Star Wars">
         </div>
     </header>
 
-    <!-- Menú de Categorías (Navegación Secundaria) -->
     <nav class="main-nav">
         <div class="container nav-wrapper">
             <a href="#" class="home-icon" aria-label="Inicio"><i class="fas fa-home"></i></a>
@@ -61,7 +53,6 @@
             <button type="button" class="search-btn" aria-label="Abrir buscador" aria-expanded="false" aria-controls="search-bar"><i class="fas fa-search"></i></button>
         </div>
 
-        <!-- Desplegables (fuera de .nav-menu para que no los recorte su overflow) -->
         <div class="nav-dropdown" id="dd-films" hidden>
             <ul>
                     <li><a href="#">Star Wars Films</a></li>
@@ -108,7 +99,6 @@
             </ul>
         </div>
 
-        <!-- Barra de búsqueda -->
         <div class="search-bar" id="search-bar" hidden>
             <div class="container">
                 <form class="search-form" role="search" action="" method="get">
@@ -120,20 +110,14 @@
         </div>
     </nav>
 
-    <!-- Contenido Principal -->
     <main class="main-content container">
-        <!-- Los bloques de contenido irán aquí en las siguientes etapas -->
-         <!-- Sección LATEST NEWS -->
         <section class="section-block latest-news-section">
-            <!-- Título de Sección -->
             <div class="section-header">
                 <h2>LATEST NEWS</h2>
             </div>
 
-            <!-- Contenedor Principal (Grid de 2 columnas) -->
             <div class="latest-news-grid">
                 
-                <!-- Columna Izquierda: Slider Noticia Principal -->
                 <div class="featured-slider" id="news-slider" role="region" aria-roledescription="carrusel" aria-label="Noticias destacadas">
                     <div class="slider-main-card">
                         <img src="assets/images/latest-news/Reign of the Empire From the Ashes'.webp" alt="'Reign of the Empire: From the Ashes' Novel Synopsis Revealed" id="slider-img">
@@ -145,14 +129,11 @@
                                 <span><i class="far fa-user"></i> <span id="slider-author">Josh Atkins</span></span>
                             </div>
                         </div>
-                        <!-- Botón de Pausa/Play superpuesto -->
                         <button type="button" class="slider-pause-btn" id="slider-pause" aria-label="Pausar carrusel"><i class="fas fa-pause"></i></button>
-                        <!-- Flechas de navegación -->
                         <button type="button" class="slider-arrow arrow-left" id="slider-prev" aria-label="Noticia anterior"><i class="fas fa-chevron-left"></i></button>
                         <button type="button" class="slider-arrow arrow-right" id="slider-next" aria-label="Noticia siguiente"><i class="fas fa-chevron-right"></i></button>
                     </div>
 
-                    <!-- Miniaturas del Carrusel (cada una lleva los datos de su slide) -->
                     <div class="slider-thumbnails">
                         <button type="button" class="thumb-item active"
                             data-img="assets/images/latest-news/Reign of the Empire From the Ashes'.webp"
@@ -169,7 +150,7 @@
                         <button type="button" class="thumb-item"
                             data-img="assets/images/latest-news/Sixth Brother - 'Star Wars' Character Spotlight.jpg"
                             data-category="CHARACTERS"
-                            data-title="Sixth Brother – 'Star Wars' Character Spotlight"
+                            data-title="Sixth Brother â€“ 'Star Wars' Character Spotlight"
                             data-date="October 23, 2026"
                             data-author="Josh Atkins"><img src="assets/images/latest-news/Sixth Brother - 'Star Wars' Character Spotlight.jpg" alt="Sixth Brother"></button>
                         <button type="button" class="thumb-item"
@@ -187,10 +168,8 @@
                     </div>
                 </div>
 
-                <!-- Columna Derecha: Grilla de 4 Noticias (2x2) -->
                 <div class="news-cards-grid">
                     
-                    <!-- Tarjeta 1 -->
                     <article class="news-card">
                         <div class="card-image">
                             <img src="assets/images/latest-news/Star Wars' January 2027 Comics Preview.jpg" alt="Comic Preview">
@@ -205,12 +184,11 @@
                         </div>
                     </article>
 
-                    <!-- Tarjeta 2 -->
                     <article class="news-card">
                         <div class="card-image">
                             <img src="assets/images/latest-news/Sixth Brother - 'Star Wars' Character Spotlight.jpg" alt="Sixth Brother">
                             <div class="card-overlay">
-                                <h4>Sixth Brother – 'Star Wars' Character Spotlight</h4>
+                                <h4>Sixth Brother â€“ 'Star Wars' Character Spotlight</h4>
                                 <div class="card-meta">
                                     <span><i class="far fa-calendar-alt"></i> Oct 23, 2026</span>
                                     <span><i class="far fa-user"></i> Josh Atkins</span>
@@ -220,7 +198,6 @@
                         </div>
                     </article>
 
-                    <!-- Tarjeta 3 -->
                     <article class="news-card">
                         <div class="card-image">
                             <img src="assets/images/latest-news/Star Wars Starfighter.jpg" alt="Starfighter">
@@ -235,7 +212,6 @@
                         </div>
                     </article>
 
-                    <!-- Tarjeta 4 -->
                     <article class="news-card">
                         <div class="card-image">
                             <img src="assets/images/latest-news/The Fall of Kylo Ren.webp" alt="Kylo Ren">
@@ -253,24 +229,19 @@
                 </div>
             </div>
 
-            <!-- Botón ver todas -->
             <div class="see-all-container">
                 <a href="#" class="see-all-link">SEE ALL LATEST NEWS</a>
             </div>
         </section>
-        <!-- Contenedor de 2 Columnas: Main Content + Sidebar -->
         <div class="main-layout">
             
-            <!-- COLUMNA IZQUIERDA: Noticias por Categorías -->
             <div class="content-left">
                 
-                <!-- Sección: THE MANDALORIAN AND GROGU -->
                 <section class="section-block category-section">
                     <div class="section-header">
                         <h2>THE MANDALORIAN AND GROGU</h2>
                     </div>
 
-                    <!-- Noticia Destacada Grande de la Categoría -->
                     <article class="featured-category-card">
                         <div class="featured-img-container">
                             <img src="assets/images/the-mandalorian-and-grogu/mandaloriann-and-grogu2.webp" alt="The Mandalorian and Grogu">
@@ -293,10 +264,8 @@
                     </article>
                     
 
-                    <!-- Lista de Noticias Secundarias (Fila de Minis) -->
                     <div class="category-list">
                         
-                        <!-- Mini Noticia 1 -->
                         <article class="mini-news-card">
                             <img src="assets/images/the-mandalorian-and-grogu/mandalorian-and-grogu3.jpg" alt="The Mandalorian and Grogu Disney Plus">
                             <div class="mini-news-info">
@@ -308,7 +277,6 @@
                             </div>
                         </article>
 
-                        <!-- Mini Noticia 2 -->
                         <article class="mini-news-card">
                             <img src="assets/images/the-mandalorian-and-grogu/tippett-studio.jpg" alt="Tippett Studio">
                             <div class="mini-news-info">
@@ -320,7 +288,6 @@
                             </div>
                         </article>
 
-                        <!-- Mini Noticia 3 -->
                         <article class="mini-news-card">
                             <img src="assets/images/the-mandalorian-and-grogu/mandalorian-and-grogu2.jpg" alt="The Mandalorian and Grogu">
                             <div class="mini-news-info">
@@ -332,7 +299,6 @@
                             </div>
                         </article>
 
-                        <!-- Mini Noticia 4 -->
                         <article class="mini-news-card">
                             <img src="assets/images/the-mandalorian-and-grogu/disney-ceo.jpg" alt="Disney CEO Josh D'Amaro">
                             <div class="mini-news-info">
@@ -350,10 +316,8 @@
                         <a href="#" class="see-all-link">See all</a>
                     </div>
                 </section>
-                <!-- Fila Doble: BOOKS & COMICS + GAMES & TOYS -->
                 <div class="two-columns-row">
                     
-                    <!-- Columna 1: BOOKS & COMICS -->
                     <section class="section-block category-section">
                         <div class="section-header">
                             <h2>BOOKS & COMICS</h2>
@@ -388,7 +352,7 @@
                             <article class="mini-news-card">
                                 <img src="assets/images/books-and-comics/Review Star Wars Icons Vader Is a One-Of-A-Kind Celebration.webp" alt="Review: 'Star Wars Icons: Vader'">
                                 <div class="mini-news-info">
-                                    <h4>Review – 'Star Wars Icons: Vader' Is a One-Of-A-Kind Celebration</h4>
+                                    <h4>Review â€“ 'Star Wars Icons: Vader' Is a One-Of-A-Kind Celebration</h4>
                                     <div class="card-meta">
                                         <span><i class="far fa-calendar-alt"></i> Oct 22, 2026</span>
                                         <span><i class="far fa-user"></i> Nate Manning</span>
@@ -402,7 +366,6 @@
                         </div>
                     </section>
 
-                    <!-- Columna 2: GAMES & TOYS -->
                     <section class="section-block category-section">
                         <div class="section-header">
                             <h2>GAMES & TOYS</h2>
@@ -453,7 +416,6 @@
 
                 </div>
 
-                <!-- Sección a ancho completo: EDITORIALS -->
                 <section class="section-block category-section">
                     <div class="section-header">
                         <h2>EDITORIALS</h2>
@@ -470,7 +432,7 @@
                                     <span class="tag tag-blue">Editorial</span>
                                     <span class="tag tag-blue">Star Wars</span>
                                 </div>
-                                <h3>Sixth Brother – 'Star Wars' Character Spotlight</h3>
+                                <h3>Sixth Brother â€“ 'Star Wars' Character Spotlight</h3>
                                 <div class="card-meta">
                                     <span><i class="far fa-calendar-alt"></i> Oct 20, 2026</span>
                                     <span><i class="far fa-user"></i> Josh Atkins</span>
@@ -483,7 +445,7 @@
                             <article class="mini-news-card">
                                 <img src="assets/images/editorials/Sebulba.webp" alt="Sebulba">
                                 <div class="mini-news-info">
-                                    <h4>Sebulba – 'Star Wars' Character Spotlight</h4>
+                                    <h4>Sebulba â€“ 'Star Wars' Character Spotlight</h4>
                                     <div class="card-meta">
                                         <span><i class="far fa-calendar-alt"></i> Oct 16, 2026</span>
                                         <span><i class="far fa-user"></i> Josh Atkins</span>
@@ -493,7 +455,7 @@
                             <article class="mini-news-card">
                                 <img src="assets/images/editorials/Kit Fisto.webp" alt="Kit Fisto">
                                 <div class="mini-news-info">
-                                    <h4>Kit Fisto – 'Star Wars' Character Spotlight</h4>
+                                    <h4>Kit Fisto â€“ 'Star Wars' Character Spotlight</h4>
                                     <div class="card-meta">
                                         <span><i class="far fa-calendar-alt"></i> Oct 9, 2026</span>
                                         <span><i class="far fa-user"></i> Josh Atkins</span>
@@ -510,10 +472,8 @@
 
             </div>
 
-            <!-- COLUMNA DERECHA: Sidebar / Barra Lateral -->
             <aside class="sidebar-right">
                 
-                <!-- Widget 1: Countdown -->
                 <div class="widget widget-countdown">
                     <div class="widget-header">
                         <h3>STAR WARS CELEBRATION 2027</h3>
@@ -538,7 +498,6 @@
                     </div>
                 </div>
 
-                <!-- Widget 2: SWNN Live Video -->
                 <div class="widget widget-clickable">
                     <div class="widget-header">
                         <h3>SWNN LIVE: SHOULD RET BE IN STARFIGHTER?</h3>
@@ -548,7 +507,6 @@
                     </div>
                 </div>
 
-                <!-- Widget 3: Marvel Guide Banner -->
                 <div class="widget widget-clickable">
                     <div class="widget-header">
                         <h3>A 'STAR WARS' MARVEL COMICS READING GUIDE</h3>
@@ -557,7 +515,6 @@
                         <img src="assets/images/sidebar-right/MARVEL COMICS READING GUIDE.jpg" alt="A 'Star Wars' Marvel Comics Reading Guide">
                     </div>
                 </div>
-                <!-- Widget Archives -->
                 <div class="widget">
                     <div class="widget-header">
                         <h3>SWNN ARCHIVES</h3>
@@ -576,11 +533,9 @@
 
         </div>
     </main>
-    <!-- Footer Principal -->
     <footer class="site-footer">
         <div class="container footer-grid">
             
-            <!-- Columna About Us -->
             <div class="footer-col">
                 <div class="section-header">
                     <h2>ABOUT US</h2>
@@ -593,7 +548,6 @@
                 </p>
             </div>
 
-            <!-- Columna Useful Information -->
             <div class="footer-col">
                 <div class="section-header">
                     <h2>USEFUL INFORMATION</h2>

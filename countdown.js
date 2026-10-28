@@ -1,4 +1,3 @@
-// Countdown: la fecha objetivo se cambia en data-target del #countdown
 (function () {
     var box = document.getElementById('countdown');
     if (!box) return;
